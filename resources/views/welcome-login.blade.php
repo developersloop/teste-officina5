@@ -7,7 +7,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 <style>
-body#LoginForm{ background-image:url("http://prosperity1.com.br/wp-content/uploads/2017/07/agenda-2296195_960_720.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
+body#LoginForm{ background-image:url("http://i0.wp.com/leonardopalmeira.com.br/website/wp-content/uploads/2013/11/news_0191.jpg"); background-repeat:no-repeat; background-position:center; background-size:cover; padding:10px;}
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
@@ -21,6 +21,9 @@ body#LoginForm{ background-image:url("http://prosperity1.com.br/wp-content/uploa
   line-height: 50px;
 }
 .main-div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
   background: #ffffff none repeat scroll 0 0;
   border-radius: 2px;
   margin: 10px auto 30px;
