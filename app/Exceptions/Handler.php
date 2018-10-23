@@ -58,7 +58,7 @@ class Handler extends ExceptionHandler
                 return redirect()->route('five');
                 break;
                    default: 
-                   return $this->renderHtppException($e);
+                   return $this->renderHttpException($e);
                    break;
            }
         } else {

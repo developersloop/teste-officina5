@@ -20,10 +20,17 @@ Route::post('/login/entrar', ['as'=>'app.login.entrar','uses'=>'LoginController@
 Route::get('/login/sair', ['as'=>'sair.login','uses'=>'LoginController@sair']);
 
 Route::group(['middleware'=>'auth'],function(){
-    Route::get('/agenda',['as'=>'agenda.home','uses'=>'AgendaController@index']);
-    Route::get('/teste',['as'=>'teste.home','uses'=>'AgendaController@teste']);
     Route::get('/recupera/senha',['as'=>'recupera.senha','uses'=>'AgendaController@show']);
+    // Routes AGENDA
+    Route::prefix('agenda')->group(function () {
+        Route::get('/',['as'=>'agenda.home','uses'=>'AgendaController@index']);
+        Route::post('entrar', ['as'=>'agenda.store','uses'=>'AgendaController@store']);
+        Route::get('/{id}', ['as'=>'agenda.show','uses'=>'AgendaController@show']);
+        Route::get('editar/{id?}/edit', ['as'=>'agenda.edit','uses'=>'AgendaController@edit']);
+        Route::put('editar/{id}', ['as'=>'agenda.update','uses'=>'AgendaController@update']);
+        Route::delete('/{id}', ['as'=>'agenda.remove','uses'=>'AgendaController@destroy']);
 
+    });
 });
 
 // ROUTES CRUD USUARIO
@@ -31,15 +38,7 @@ Route::resource('users', 'UserController');
 Route::post('/users/atualizar', ['as'=>'users.atualizar','uses'=>'UserController@atualizar']);
 
 
-// Routes AGENDA
-Route::prefix('agenda')->group(function () {
-    Route::post('entrar', ['as'=>'agenda.store','uses'=>'AgendaController@store']);
-    Route::get('/{id}', ['as'=>'agenda.show','uses'=>'AgendaController@show']);
-    Route::get('editar/{id?}/edit', ['as'=>'agenda.edit','uses'=>'AgendaController@edit']);
-    Route::put('editar/{id}', ['as'=>'agenda.update','uses'=>'AgendaController@update']);
-    Route::delete('/{id}', ['as'=>'agenda.remove','uses'=>'AgendaController@destroy']);
 
-});
 
 // 404 not found e error 505 
 Route::get('/notFound', ['as'=>'notfound','uses'=>'AgendaController@found']);
